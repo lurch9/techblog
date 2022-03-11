@@ -1,0 +1,54 @@
+    <form class="col-12 comment-data">
+        <div class="col-12 col-xl-3 col-md-5">
+            <div class="col-md-12 py-3 card h-100">
+                <div class="form-group">
+                    <label for="comment-content">Comment:</label>
+                    <textarea class="form-control" rows="10" cols="50" id="comment-content"></textarea>
+                </div>      
+            </div>
+            <button type="submit" class="btn btn-success">Add Comment</button>
+
+        </div>
+    </form>
+        {{#each comments as |comment| }}
+        <div class="post-results col-12 col-md-12 col-xl-7 project">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-around">
+                    <span><h3>{{post.title}}</h3></span>
+                    <h4>Commented by {{comment.user.name}} on {{format_date comment.comment_date}}</h4>
+                </div>
+                <div class="col text-content">
+                    {{comment.comment_content}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    {{!-- code to submit comments for specific id --}}
+    <script>
+        
+    async function commentHandler(event) {
+        event.preventDefault();
+        const comment_data = document.querySelector("#comment-content").value.trim();
+        console.log("COMMENT", comment_data)
+        const response = await fetch (`/dashboard/comment`, {
+            method: "POST",
+            body: JSON.stringify({
+                comment_data,
+                post_id: {{post_id}}
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (response.ok) {
+            document.location.replace('/dashboard/comment/{{post_id}}');
+        } else {
+            alert("cannot find any properties");
+        }
+        }
+
+document.querySelector(".comment-data").addEventListener("submit", commentHandler);
+    </script>
+    {{!-- <script src="/js/submit-comment.js"></script> --}}
+
+
