@@ -16,4 +16,70 @@
     max-width: 250px;
 }
 
+
+.dashboard, .comment-data {
+    min-height: 100vh;
+
+}
+
+.post-data {
+    margin: 0 auto;
+}
+
+
+
+.post-results {
+    color: black;
+    padding: 15%;
+    border: 5px solid teal;
+    margin: 5% 0%;
+    margin-right: 50%;
+    font-size: 100%;
+}
+
+.post-title, .post-results h4 {
+    margin-bottom: 20%;
+    color: teal;
+}
+
+.post-delete {
+    margin-left: 5%;
+}
+
+.post-comment {
+    background-color: teal;
+    color: white;
+    border-radius: 10px;
+    padding: 15%;
+    margin-top: 25%;
+}
+
+.post-author {
+    font-size: 200%;
+}
+
+.post-content-results{
+    font-size: 100%;
+    word-wrap: break-word;
+}
+
+.text-content {
+    font-size: 150%;
+    word-wrap: break-word;
+
+}
+
+
+@media only screen and (max-width: 780px) {
+    .post-results {
+        word-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .post-author {
+        font-size: 120%;
+    }
+}
+
   

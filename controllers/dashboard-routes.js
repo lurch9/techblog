@@ -36,7 +36,7 @@ try {
                 }
             ]
         })
-            // Serialize data so the templa
+            
         const posts = postData.map((post) => post.get({ plain: true }));
         console.log(posts)
 
