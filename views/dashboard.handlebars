@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-end dashboard">
+    <form class="col-md-6 p-4 post-data">
+        <div class="flex-grow-2 col-12 col-xl-3 col-md-12 post-data-information">
+            <div class="card h-100">
+                <div class="form-group">
+                    <label for="post-title">Title:</label>
+                    <textarea class="form-control" rows="1" columns="10" id="post-title"></textarea>
+                </div>      
+            </div>
+            <div class="col-md-12 py-3 card h-100">
+                <div class="form-group">
+                    <label for="post-content">Post:</label>
+                    <textarea class="form-control" rows="10" columns="10" id="post-content"></textarea>
+                </div>      
+            </div>
+            <button type="submit" class="btn btn-success">Post</button>
+
+        </div>
+    </form>
+    <div class="col-6">
+    {{#each posts as |post| }}
+        <div class="d-flex flex-column justify-content-center align-items-center post-results col-12 col-md-12 col-xl-7 project">
+            <div class="col-12">
+                <div class=''>
+                    <div>
+                        <p class="col-12 post-author">Posted by {{post.user.name}}</p>
+                        <p class="col-12 post-author">{{format_date post.post_date}}</p>
+                    </div>
+                    <span class="post-title"><h3>{{post.title}}</h3></span>
+                </div>
+                <div class="col text-content col-12">
+                    <p class="col-12 post-content-results">{{post.content}}</p>
+                </div>
+            </div>
+            <div class="d-flex post-results-options justify-content-around">
+                <button class="btn btn-sm btn-primary post-update" data-id="{{post.id}}">Update</button>
+                <button class="btn btn-sm btn-danger post-delete" data-id="{{post.id}}">Delete</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a class="post-comment" href='/dashboard/comment/{{post.id}}'>Comments</a>
+            </div>
+        </div>
+    {{/each}}
+
+    </div>
+</div>
+<script src="/js/submit-post.js"></script>
