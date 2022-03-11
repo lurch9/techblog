@@ -1,3 +1,19 @@
+* {
+    font-family: sans-serif;
+}
 
+.login-page {
+    background-color: white;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.signup-form, .login-form {
+    border: 2px solid teal;
+    padding: 1%;
+    border-radius: 5%;
+    margin: 2% 0;
+    max-width: 250px;
+}
 
   
