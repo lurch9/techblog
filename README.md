@@ -1,3 +1,8 @@
-```bash
-yarn create next-app nextjs-server-action-app
+```javascript
+const nextConfig = {
+  experimental: {
+    serverActions: true
+  }
+}
+module.exports = nextConfig
 ```
